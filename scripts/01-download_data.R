@@ -1,17 +1,27 @@
 library(opendatatoronto)
 library(dplyr)
+library(here)
+library(glue)
+
+# Create the directory for the output data 
+project_dir <- here::here()
+output_dir <- file.path(project_dir, "data", "raw_data")
+dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
 
-package <- show_packages("058236d2-d26e-4622-9665-941b9e7a5229")
-package
+resources <- list_package_resources("ec1f8fbb-0296-4eaf-a10d-c58adc0d4245")
+# Select the six yearly reports from 2021 through 2026.
+relevant_rows <- resources %>%
+  filter(grepl("^202[1-6]_Monthly_Report", name))
 
+# Loop to grab the name and slug then save the corresponding year of data from
+for (i in seq_len(nrow(relevant_rows))){
+  name <- relevant_rows$name[i]
+  year <- substr(name, 1,4)
+  slug <- relevant_rows$id[i]
 
-# get all resources for this package
-resources <- list_package_resources("058236d2-d26e-4622-9665-941b9e7a5229")
- 
-# identify datastore resources; by default, Toronto Open Data sets datastore resource format to CSV for non-geospatial and GeoJSON for geospatial resources
-datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
- 
-# load the first datastore resource as a sample
-data <- filter(datastore_resources, row_number()==1) %>% get_resource()
-data
+  excel_sheets <- get_resource(slug)
+  data_path <- file.path(output_dir, glue("raw_data_{year}.csv"))
+  write.csv(data, data_path, row.names = FALSE)
+  message("Saved ", nrow(data), " rows to: ", data_path)
+}

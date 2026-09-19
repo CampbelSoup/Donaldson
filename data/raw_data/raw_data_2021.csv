@@ -1,0 +1,95 @@
+"...1","...2","...3","...4","...5","...6","...7","...8","...9","...10","...11","Reportable Communicable Diseases
+ Monthly Report - December 2021","...13","...14","...15","...16","...17","...18","...19","...20"
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Disease","2021 YTD Cases","2021 YTD Rate1","January","February","March","April","May","June","July","August","September","October","November","December","December 3 yr. Average2","2020 Total Cases","2020 Total Rate1",NA,NA
+"Sexually Transmitted and Bloodborne",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"AIDS","18","0.6","1","0","1","0","1","0","4","0","3","6","1","1","1.3333333333333333","30","1.0115611321796816",NA,NA
+"HIV","320","10.8","26","29","24","17","17","29","37","23","26","45","27","20","41.333333333333336","411","13.85838751086164",NA,NA
+"Chlamydia","10378","349.9","803","769","823","762","682","794","785","1000","1090","970","1027","873","968","9065","305.66005544029377",NA,NA
+"Chancroid","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Gonorrhea","3740","126.1","316","273","291","216","196","250","270","344","427","428","429","300","345.66666666666669","3627","122.29774088052349",NA,NA
+"Hepatitis B - cases","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","4","0.13487481762395753",NA,NA
+"Hepatitis B - carriers","364","12.3","43","36","31","37","27","36","30","23","21","26","30","24","42.666666666666664","364","12.273608403780138",NA,NA
+"Hepatitis B - unclassified3","310","10.5","17","21","28","29","24","30","22","25","27","28","35","24","23.333333333333332","223","7.5192710825356333",NA,NA
+"Hepatitis C","469","15.8","43","21","49","47","45","42","20","33","38","40","56","35","48.333333333333336","463","15.611760139973084",NA,NA
+"Ophthalmia neonatorum","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","3.3718704405989383E-2",NA,NA
+"Syphilis, infectious","1423","48","131","114","118","105","101","115","88","112","144","126","146","123","106","1244","41.946068281050799",NA,NA
+"Syphilis, other","431","14.5","33","30","44","30","34","34","47","33","25","36","50","35","26.333333333333332","256","8.6319883279332821",NA,NA
+"Enteric, Food and Waterborne",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Amebiasis","101","3.4","6","4","4","8","2","12","11","16","12","10","8","8","13.333333333333334","140","4.7206186168385136",NA,NA
+"Botulism","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Campylobacter enteritis","353","11.9","25","25","8","7","19","27","51","44","42","55","26","24","29.666666666666668","400","13.487481762395754",NA,NA
+"Cholera","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Cryptosporidiosis","62","2.1","1","0","0","0","1","4","7","26","7","4","4","8","5.333333333333333","58","1.9556848555473842",NA,NA
+"Cyclosporiasis","15","0.5","0","0","0","0","0","2","5","1","2","0","1","4","<1","65","2.19171578638931",NA,NA
+"Food poisoning","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1.6666666666666667","10","0.33718704405989386",NA,NA
+"Giardiasis","156","5.3","11","10","12","9","9","9","15","17","19","19","16","10","18","228","7.687864604565581",NA,NA
+"Hepatitis A","14","0.5","1","0","0","0","1","2","0","0","2","3","4","1","2.3333333333333335","13","0.43834315727786199",NA,NA
+"Listeriosis","20","0.7","3","0","1","1","1","3","5","0","3","1","2","0","1","17","0.57321797490181958",NA,NA
+"Paralytic shellfish poisoning","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Paratyphoid fever","3","0.1","0","0","1","0","0","0","0","0","0","2","0","0","1","6","0.2023122264359363",NA,NA
+"Salmonellosis","254","8.6","12","10","9","10","13","17","46","25","39","24","23","26","27.333333333333332","291","9.8121429821429125",NA,NA
+"Shigellosis","65","2.2000000000000002","6","5","7","2","4","4","6","6","3","9","8","5","10","93","3.1358395097570124",NA,NA
+"Trichinosis","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","3.3718704405989383E-2",NA,NA
+"Typhoid fever","5","0.2","0","1","0","1","0","0","0","1","0","0","2","0","1","12","0.4046244528718726",NA,NA
+"Verotoxin-producing E. coli infection","25","0.8","0","0","0","2","3","3","2","3","6","3","2","1","<1","20","0.67437408811978772",NA,NA
+"Yersiniosis","82","2.8","8","7","10","4","3","5","6","13","8","6","8","4","3.6666666666666665","55","1.8545287423294163",NA,NA
+"Vaccine Preventable",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Acute flaccid paralysis","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Adverse vaccine reactions","54","1.8","10","5","7","5","1","2","0","1","2","5","8","8","12","57","1.9219661511413952",NA,NA
+"Chickenpox","105","3.5","5","10","10","4","5","2","2","14","13","8","21","11","17.666666666666668","126","4.2485567551546621",NA,NA
+"Diphtheria","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Haemophilus influenzae, invasive4","8","0.3","1","2","0","0","1","0","0","2","1","1","0","0","2.6666666666666665","15","0.50578056608984079",NA,NA
+"Influenza - sporadic","17","0.57321797490181958","2","1","0","0","0","0","1","0","1","0","4","8","448","1823","61.469198132118656",NA,NA
+"Influenza - outbreak associated","0","0","0","0","0","0","0","0","0","0","0","0","0","0","17","86","2.8998085789150871",NA,NA
+"Measles","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Mumps","1","<0.1","1","0","0","0","0","0","0","0","0","0","0","0","1.6666666666666667","25","0.84296761014973465",NA,NA
+"Pertussis","0","0","0","0","0","0","0","0","0","0","0","0","0","0","3","16","0.53949927049583013",NA,NA
+"Rubella","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","3.3718704405989383E-2",NA,NA
+"Rubella, congenital syndrome","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Tetanus","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Direct Contact and Respiratory",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"COVID-19","178767","6027.7916305455046","22426","9847","18549","35194","15106","1909","990","4094","3960","2086","2768","61838","NA","67040","2260.5019433775283",NA,NA
+"Legionellosis","77","2.6","2","2","2","4","2","8","14","12","9","14","8","0","6.333333333333333","50","1.6859352202994693",NA,NA
+"Leprosy","0","0","0","0","0","0","0","0","0","0","0","0","0","0","<1","0","0",NA,NA
+"Meningococcal disease, invasive","4","0.1","0","0","0","0","1","0","2","1","0","0","0","0","0","6","0.2023122264359363",NA,NA
+"Group A Streptococcal disease, invasive","119","4","14","11","8","9","6","12","9","11","6","9","11","13","16.333333333333332","182","6.1368042018900688",NA,NA
+"Group B Streptococcal disease, neonatal","9","0.3","1","2","0","0","2","2","0","0","0","0","1","1","<1","13","0.43834315727786199",NA,NA
+"Pneumococcal disease, invasive","96","3.2","8","9","6","12","5","6","2","9","6","7","9","17","29","125","4.2148380507486731",NA,NA
+"TB: Atypical mycobacterial infections","36","1.2","3","4","3","1","2","5","3","2","3","3","3","4","23","128","4.315994163966641",NA,NA
+"Tuberculosis5","284","9.6","18","27","20","22","27","28","24","31","13","25","26","23","21","272","9.1714875984291133",NA,NA
+"Vectorborne and Zoonotics",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Brucellosis","1","<0.1","0","0","0","0","0","0","0","0","1","0","0","0","<1","3","0.10115611321796815",NA,NA
+"Echinoccoccus multilocularis infection4","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Hemorrhagic fevers","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Lyme disease","136","4.5999999999999996","0","1","2","2","6","38","40","25","14","5","3","0","<1","48","1.6184978114874904",NA,NA
+"Q fever","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","3.3718704405989383E-2",NA,NA
+"Rabies","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"Tularemia","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",NA,NA
+"West Nile Virus","8","0.3","0","0","0","0","0","0","0","2","5","1","0","0","<1","35","1.1801546542096284",NA,NA
+"Other",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Blastomycosis4","7","0.2","0","0","1","0","0","3","1","0","0","1","0","1","<1","0","0",NA,NA
+"Carbapenamase-producing Enterobacteriaceae4","69","2.2999999999999998","2","2","3","6","2","4","4","5","11","12","12","6","5","71","2.3940280128252462",NA,NA
+"Transmissible spongiform encephalopathy: Creutzfeldt-Jakob disease","3","0.1","0","1","0","0","0","0","0","0","1","0","0","1","<1","4","0.13487481762395753",NA,NA
+"Encephalitis/Meningitis",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Encephalitis/Meningitis - bacterial6","-","-","-","-","-","-","-","-","-","-","-","-","-","-","1.6666666666666667","5","0.16859352202994693",NA,NA
+"Encephalitis/Meningitis - viral6","-","-","-","-","-","-","-","-","-","-","-","-","-","-","3.3333333333333335","25","0.84296761014973465",NA,NA
+"Encephalitis/Meningitis - other6","-","-","-","-","-","-","-","-","-","-","-","-","-","-","0","5","0.16859352202994693",NA,NA
+"Encephalitis/Meningitis - unknown6","-","-","-","-","-","-","-","-","-","-","-","-","-","-","<1","0","0",NA,NA
+"Outbreaks",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Gastroenteritis7","14","0.5","1","1","1","1","0","0","2","1","1","1","1","4","8.3333333333333339","64","2.1579970819833205",NA,NA
+"Respiratory Infection7","1210","40.799999999999997","113","89","230","201","63","9","8","20","63","37","76","301","96.333333333333329","857","28.896929675932906",NA,NA
+"Other7","0","0","0","0","0","0","0","0","0","0","0","0","0","0","<1","1","3.3718704405989383E-2",NA,NA
+"Source: Ontario Ministry of Health, integrated Public Health Information System (iPHIS), extracted [02/12/2024].
+             Ontario Ministry of Health, Case and Contact Management System (CCM), extracted [02/13/2024].",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"1 Rate per 100,000 population. Population source:Statistics Canada, Centre for Demography, customized data (2019).
+",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"2 3-year average based on 2017-2019 data, rounded to the nearest integer.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"3 This category captures cases with positive HBV markers with insufficient evidence to be classified; these are most likely carriers.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"4 As of May 1, 2018, the reportable disease list for Ontario was updated. Malaria and yellow fever were removed, and Carbapenamase-producing Enterobacteriaceae, blastomycosis and Echinoccoccus multilocularis infection were added. While previously only b serotypes of invasive Haemophilus influenzae were reportable, all serotypes are now reportable.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"5 TB cases included in this report are classified by diagnosis date.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"6 Due to operational constraints related to the COVID-19 Response, Encephalitis/Meningitis reports (from January 2021 onwards) were not entered into the provincial reporting system (iPHIS).",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"7 Number of outbreaks and not number of cases counted.",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"NA: Not Applicable",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

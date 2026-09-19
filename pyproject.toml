@@ -7,7 +7,9 @@ authors = [
     { name = "CampbelSoup", email = "campp246@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "requests>=2.34.2",
+]
 
 [project.scripts]
 donaldson = "donaldson:main"

@@ -1,0 +1,82 @@
+Data Cleaning
+=============
+
+Transcript of all user messages and user-facing assistant replies and progress
+updates in this conversation through the request to save this history.
+System/developer instructions, internal reasoning, tool calls/results, and
+automatically supplied environment/plugin metadata are not included.
+
+User:
+Write a python script that convert the various formats of the raw data into a single, uniform dataset. Keep the format that is consistent with the 2025 data, however, after listing the cases for each of the months I want to simplify the rest into 3 columns: 1. yearly cases (summation of the monthly cases) 2. yearly rate f diease (if available) 3. year. Each row should represent that data of one disease for a full calender year. Do not include the 2026 data as it is not complete. Each row should also have the catgeory of the disease type. Drop COVID-19 or other directly related disease from the dataset as they will not be included in analysis. The script should be well commented and simple to follow.
+
+Assistant (progress update):
+I’ll inspect the raw files and the 2025 layout, then write a commented Python script to combine the complete years into the requested format.
+
+Assistant (progress update):
+The older files store categories as section headings and split influenza into two case types. I’ll standardize names and categories to the 2025 labels and combine those influenza counts.
+
+The 2025 file only provides rates for 2024, so its yearly rate will be blank. Missing monthly values will stay missing, with no annual total calculated for those rows. I’ll exclude COVID-19, SARS, and rows that count outbreaks rather than disease cases.
+
+Assistant:
+Created the commented [Python script](scripts/03-data_cleaning.py) and generated the [uniform dataset](data/processed/yearly_cases_2021_2025.csv): **346 disease-year rows for 2021–2025**.
+
+Columns follow the 2025 layout: category, disease, January–December, yearly cases, yearly rate, and year. COVID-19, SARS, and outbreak-count rows are excluded.
+
+Validated annual sums, unique disease-year rows, and influenza merging. Missing values remain blank, including unavailable 2025 rates.
+
+Run again with:
+
+```sh
+python scripts/03-data_cleaning.py
+```
+
+User:
+There are errors: 1. only entries with COVID in the title should be removed. 2. The 2025 rates and counts can be found in the 2026 report so please add them. 3. Enteric, Food and Waterborne Diseases has quotations around it please adjuste this. 4. Rows should be grouped by the disease catgeory. 5. There should be a single output file that is the same format as the yearly cases file. State any deviations from these chnages in a md file
+
+Assistant (progress update):
+I’ll update the filtering, use the 2026 report’s 2025 annual figures, and group rows by category. I’ll also check the output files and document any necessary deviations in Markdown.
+
+Assistant (progress update):
+The 2026 report includes revised 2025 totals—for example, iGAS changes from 261 to 263 cases. I’ll use those annual totals and rates while retaining the 2025 monthly counts, and document where they no longer sum to the revised total.
+
+The quotation marks around `Enteric, Food and Waterborne Diseases` are required CSV syntax because the name contains a comma; they aren’t part of the category value. I’ll preserve valid CSV formatting and explain this deviation in the Markdown file.
+
+Assistant:
+Updated the [script](scripts/03-data_cleaning.py) and regenerated the single [dataset](data/processed/yearly_cases_2021_2025.csv) with 347 rows.
+
+- Only titles containing COVID are excluded; SARS is restored.
+- 2025 annual counts and rates use the 2026 report.
+- Rows are grouped by category, disease, then year.
+- Removed the obsolete monthly output.
+
+CSV quotes remain necessary around categories containing commas; they aren’t part of the values. This and differences between revised annual totals and monthly sums are documented in the [Markdown notes](data/processed/yearly_cases_README.md).
+
+All checks passed.
+
+User:
+Remap the enteric disease catgeory to not include a comma thus quotations are not required
+
+Assistant (progress update):
+I’ll rename the category to `Enteric Food and Waterborne Diseases` and regenerate the dataset.
+
+Assistant:
+Renamed the category to **Enteric Food and Waterborne Diseases** across all 90 applicable rows, so it no longer requires quotation marks.
+
+Updated the script, [dataset](data/processed/yearly_cases_2021_2025.csv), and Markdown notes. Verified all 347 rows remain intact.
+
+User:
+Eliminate the encephalities rows citing what is written in the footnotes of the raw data files from 2024
+
+Assistant (progress update):
+I’ll check the 2024 footnote, remove the encephalitis/meningitis rows, and cite the reason in the dataset notes.
+
+Assistant:
+Removed all 16 encephalitis/meningitis rows and updated the script. The [dataset](data/processed/yearly_cases_2021_2025.csv) now contains **331 rows**; remaining rows are unchanged.
+
+The [Markdown notes](data/processed/yearly_cases_README.md) cite footnote 10 from the 2024 report: reports from January 2021 onward were not entered into iPHIS due to operational constraints related to the COVID-19 response.
+
+User:
+I added in an llm usage txt file. Please upload the entire history of this chat thus far with the heading "Data Cleaning"
+
+Assistant (progress update):
+I’ll locate the LLM usage text file and append the chat history under the heading “Data Cleaning.”

@@ -1,0 +1,23 @@
+---
+title: "Vaccine Preventable Diseases in Toronto: Annual Trends and Seasonal Patterns"
+author: "Joshua Campbell"
+date: "2026-09-28"
+date-format: "D MMMM YYYY"
+bibliography: references.bib
+format: pdf
+---
+
+# Abstract 
+
+# Introduction
+
+
+# Data 
+
+
+# Acknledgements 
+
+A link to the GitHub repository with all available code and information can be found at: 
+
+# References 
+

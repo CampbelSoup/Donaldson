@@ -1,13 +1,37 @@
 ---
 title: "Vaccine Preventable Diseases in Toronto: Annual Trends and Seasonal Patterns"
 author: "Joshua Campbell"
+thanks: >-
+  All available code and information can be found in the
+  [GitHub repository](https://github.com/CampbelSoup/Toronto-Communicable-Disease-Report).
 date: "2026-09-28"
 date-format: "D MMMM YYYY"
 bibliography: references.bib
 format: pdf
 ---
 
+```{r}
+#| label: setup
+#| include: false
+#| echo: false
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+disease_data <- read_csv(
+  "../data/processed/yearly_cases_2021_2025.csv",
+  show_col_types = FALSE
+)
+
+vaccine_data <- disease_data |>
+  filter(`Disease Category` == "Vaccine Preventable Diseases")
+```
+
 # Abstract 
+
+4 Sctences: 1. Specify general area, 2. Specify dataset and methods 3. Specify headline result 4. Implications 
+
 
 # Introduction
 
@@ -15,9 +39,51 @@ format: pdf
 # Data 
 
 
-# Acknledgements 
 
-A link to the GitHub repository with all available code and information can be found at: 
+```{r}
+#| label: tbl-variables
+#| tbl-cap: "Description of the dataset variables"
+#| echo: false
+
+library(tinytable)
+
+variable_descriptions <- data.frame(Variable = c("Disease", "Disease Category", "January-December", "Yearly Cases", "Yearly Counts", "Year"), 
+                                    Decription = c(
+                                                    "Name of reported disease.", 
+                                                    "The reporting catgeory assigned to the disease, as distinguished by Toronto Public Health.", 
+                                                    "Reported case counts for the months of the calender year.", 
+                                                    "Reporetd case counts for the year of surveillence for a given disease.", 
+                                                    "Rate of cases expressed as cases per 100'000 population for year.", 
+                                                    "Year of observation."
+
+                                                        )
+                                                        )
+tt(variable_descriptions)
+```
+
+```{r}
+#| label: tbl-disease-catgeories
+#| tbl-cap: "Diseases included in each category, 2021–2025."
+#| echo: false
+
+# Mark diseases that do not have an entry in all five study years.
+diseases_by_category <- disease_data |>
+  filter(Year %in% 2021:2025) |>
+  group_by(`Disease Category`, Disease) |>
+  summarise(Years = n_distinct(Year), .groups = "drop") |>
+  mutate(Disease = if_else(Years < 5, paste0(Disease, "*"), Disease)) |>
+  arrange(`Disease Category`, Disease) |>
+  group_by(`Disease Category`) |>
+  summarise(Diseases = paste(Disease, collapse = "; "), .groups = "drop")
+
+tt(
+  diseases_by_category,
+  width = c(0.25, 0.75),
+  notes = "* Not listed in every year from 2021 to 2025. Zero-case entries count as listed; an entry does not imply complete monthly reporting."
+)
+```
+
+
+
 
 # References 
-

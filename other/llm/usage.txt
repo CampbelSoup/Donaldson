@@ -80,3 +80,49 @@ I added in an llm usage txt file. Please upload the entire history of this chat 
 
 Assistant (progress update):
 I’ll locate the LLM usage text file and append the chat history under the heading “Data Cleaning.”
+
+
+Simulation and Validation Tests
+================================
+
+User:
+Write a simple, well-commented Python script to simulate my cleaned disease
+dataset. Hardcode the six category names and the diseases allowed in each,
+using the cleaned dataset's labels. Generate one row per disease for each year
+from 2021 to 2025, with January to December counts randomly chosen from 0 to
+10,000 inclusive. Calculate Yearly Cases by adding the twelve months. Save a
+CSV with the same column names as my analysis data, but omit Yearly Rate.
+Create four separate validation functions: check that years are integers in
+2021-2025, diseases belong to their stated categories, each yearly total equals
+its monthly sum, and monthly and yearly counts are nonnegative. Give each
+function a short description. Put the checks in a separate reusable script,
+scripts/validate_data.py, that can also validate my actual CSV.
+
+Agent:
+I'll use a hardcoded category-to-disease dictionary and Python's standard
+library. The simulation will import the shared labels and checks from
+scripts/validate_data.py. Each validation function will accept row dictionaries and return a
+list of findings, with an empty list indicating a pass. The simulation will
+use a fixed random seed so you can reproduce the output.
+
+User:
+Keep missing values separate from zero. When checking real data, report any
+missing counts or mismatched annual totals without changing the file.
+
+Agent:
+Missing or invalid counts will be flagged as unverifiable rather than filled
+with zero. Annual sums will be checked only when all twelve months and the
+annual count are numeric. Revised published totals may therefore fail that
+check even when they were copied correctly from the source.
+
+User:
+Add an easy way to run the tests on an existing CSV. Also check that the
+functions actually catch a bad year, a disease in the wrong category, an
+incorrect total, and a negative count.
+
+Agent:
+Run python scripts/validate_data.py followed by a CSV path to validate an
+existing file without modifying it. The simulation script will generate data
+and call the same validation functions. I'll also
+verify the functions using deliberately invalid records and confirm that all
+four checks pass on the generated dataset.

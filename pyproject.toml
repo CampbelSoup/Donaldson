@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.14"
 dependencies = [
+    "polars",
     "requests>=2.34.2",
 ]
 

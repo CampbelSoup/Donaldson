@@ -250,7 +250,7 @@ sample_rows <- disease_data |>
          `Yearly Cases`, `Yearly Rate`)
 names(sample_rows) <- c("Category", "Disease", "Year", "Jan", "Dec", "Cases", "Rate")
 tt(sample_rows, width = c(.18, .24, .08, .08, .08, .12, .12),
-   notes = "January and December illustrate the monthly fields. Rates are per 100,000 population.") |>
+   notes = "Note: January and December illustrate the monthly fields. Rates are per 100,000 population.") |>
   style_tt(fontsize = 0.7)
 ```
 

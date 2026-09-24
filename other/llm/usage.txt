@@ -133,8 +133,8 @@ Figure and Table Requests
 Summary of actual exchanges, not a verbatim transcript.
 
 User requests:
-I requested a series of plots that present the monthyl case counts for the 
-disease catgeories of the dataset. I  requested a monthly plot overlaying influenza 
+Create a series of plots that present the monthly case counts for the 
+disease catgeories of the dataset. Create a monthly plot overlaying influenza 
 cases on the vaccine-preventable category total and a separate plot of
 annual influenza rates for 2021-2025.I later asked for the figures and a 
 sample-data table to be implemented in Quarto using the figure and table 

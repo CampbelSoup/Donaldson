@@ -126,3 +126,79 @@ existing file without modifying it. The simulation script will generate data
 and call the same validation functions. I'll also
 verify the functions using deliberately invalid records and confirm that all
 four checks pass on the generated dataset.
+
+
+Figure and Table Requests
+=========================
+Summary of actual exchanges, not a verbatim transcript.
+
+User requests:
+I requested a series of plots that present the monthyl case counts for the 
+disease catgeories of the dataset. I  requested a monthly plot overlaying influenza 
+cases on the vaccine-preventable category total and a separate plot of
+annual influenza rates for 2021-2025.I later asked for the figures and a 
+sample-data table to be implemented in Quarto using the figure and table 
+naming conventions in my draft.
+
+Assistant assistance:
+The assistant created six monthly category panels, the influenza/category
+overlay, an annual influenza-rate plot and a reproducible sample of four
+rows with selected columns. The labels were fig-monthly-disease-categories,
+fig-influenza-vaccine-dep, fig-influenza-yearly-rate and tbl-sample. It also
+standardized the disease-category table label to tbl-disease-categories.
+The R chunks read the cleaned CSV once and reused it. Category panels used
+separate vertical scales and marked partial totals where component counts
+were missing. Annual influenza rates retained the published values, including
+the revised 2025 rate. The assistant rendered the Quarto PDF successfully.
+
+
+Report Feedback and Writing Revisions
+=====================================
+Summary of actual exchanges, not a verbatim transcript.
+
+User requests:
+I asked for concise graduate-level writing feedback that follows the assignment 
+rubric, without the specified prohibited words and phrases. I wanted the report 
+to move from disease-category patterns to influenza and then discuss vaccination 
+coverage and timing. I asked to limit feedback to sections 2.2 and 2.3 and place 
+suggested edits in brackets. After making my own revisions, I requested a new 
+review copy with bracketed feedback, and a check of the whole document and removal 
+of unused references.
+
+Assistant assistance:
+The assistant read and edited the Word drafts in the project, and later produced 
+a separate review copy containing bracketed suggestions alongside my wording. 
+It checked numerical claims against the cleaned data and consulted public-health 
+sources for vaccination claims. It completed rate placeholders with 105.8 cases 
+per 100,000 in 2023 and 387.0 in 2025, and added the requested software citations.
+
+The feedback identified December rather than November as the vaccine-preventable category's 2023
+peak, and corrected semiannual vaccination to annual vaccination. It also
+explained that national vaccination estimates cannot establish the cause of
+Toronto's case increases. The assistant flagged 2024-2025 coverage figures
+that were not supported by the cited 2023-2024 report and proposed a replacement
+using verified figures. It checked the prohibited wording list, found no exact
+matches in my saved prose, and suggested changing the related word "reveal"
+to "show". It added missing references and removed eight entries not cited in
+the active Word review or Quarto file, preserving a bibliography backup.
+
+User requests: 
+Help restructure and improve the wording of the introduction for a report analyzing 
+Toronto communicable disease surveillance data. I want the introduction to be about 4–5 
+paragraphs and to mirror the main sections of the paper: the surveillance dataset, 
+monthly disease-category patterns, vaccine-preventable diseases, influenza trends, 
+and vaccination/public-health implications.
+
+Assistant assistance: 
+Proposed an introduction structure that moves from broad public-health surveillance 
+context to the specific Toronto dataset, then narrows to seasonal disease-category 
+patterns, vaccine-preventable diseases as a case study, influenza as the main disease 
+of interest, and finally vaccination coverage and public-health programming. 
+The assistant suggested changes to improve clarity, reduced repetition, corrected 
+awkward wording, and recommended using terms such as “case study” or “illustrative 
+example.” The assistant also cautioned against implying a causal relationship between 
+vaccination coverage and influenza cases, instead suggesting wording that frames the 
+datasets as being considered alongside one another. In a later refinement, the assistant 
+confirmed that the user could state that increases in population-adjusted influenza rates 
+suggest recent case increases cannot be explained by Toronto’s population growth alone, 
+while avoiding claims about the specific cause of the increase.

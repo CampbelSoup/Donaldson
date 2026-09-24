@@ -1,13 +1,17 @@
 ---
-title: "Vaccine Preventable Diseases in Toronto: Annual Trends and Seasonal Patterns"
-author: "Joshua Campbell"
-thanks: >-
-  All available code and information can be found in the
-  [GitHub repository](https://github.com/CampbelSoup/Toronto-Communicable-Disease-Report).
+title: "Vaccine Preventable Diseases in Toronto: Annual Trends and Seasonal Patterns*"
+author: "Joshua Campbell ^[All available code and information can be found in the
+  [GitHub repository](https://github.com/CampbelSoup/Toronto-Communicable-Disease-Report).]"
 date: "2026-09-28"
 date-format: "D MMMM YYYY"
 bibliography: references.bib
-format: pdf
+format:
+  pdf:
+    keep-tex: true
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
 
 ```{r}
@@ -18,9 +22,11 @@ format: pdf
 library(readr)
 library(dplyr)
 library(ggplot2)
+library(tinytable)
 
 disease_data <- read_csv(
   "../data/processed/yearly_cases_2021_2025.csv",
+  col_types = cols(`Yearly Rate` = col_character()),
   show_col_types = FALSE
 )
 
@@ -30,13 +36,15 @@ vaccine_data <- disease_data |>
 
 # Abstract 
 
-4 Sctences: 1. Specify general area, 2. Specify dataset and methods 3. Specify headline result 4. Implications 
+4 sentences: 1. Specify general area, 2. Specify dataset and methods 3. Specify headline result 4. Implications 
 
 
-# Introduction
+# 1. Introduction
 
 
-# Data 
+# 2. Data
+
+## 2.1 Toronto Communicable Disease Surveillance Data
 
 
 
@@ -47,13 +55,13 @@ vaccine_data <- disease_data |>
 
 library(tinytable)
 
-variable_descriptions <- data.frame(Variable = c("Disease", "Disease Category", "January-December", "Yearly Cases", "Yearly Counts", "Year"), 
-                                    Decription = c(
+variable_descriptions <- data.frame(Variable = c("Disease", "Disease Category", "January-December", "Yearly Cases", "Yearly Rate", "Year"), 
+                                    Description = c(
                                                     "Name of reported disease.", 
-                                                    "The reporting catgeory assigned to the disease, as distinguished by Toronto Public Health.", 
-                                                    "Reported case counts for the months of the calender year.", 
-                                                    "Reporetd case counts for the year of surveillence for a given disease.", 
-                                                    "Rate of cases expressed as cases per 100'000 population for year.", 
+                                                    "The reporting category assigned to the disease, as distinguished by Toronto Public Health.", 
+                                                    "Reported case counts for the months of the calendar year.", 
+                                                    "Reported case counts for the year of surveillance for a given disease.", 
+                                                    "Rate of cases expressed as cases per 100,000 population for year.", 
                                                     "Year of observation."
 
                                                         )
@@ -61,10 +69,133 @@ variable_descriptions <- data.frame(Variable = c("Disease", "Disease Category", 
 tt(variable_descriptions)
 ```
 
+
+
+
 ```{r}
-#| label: tbl-disease-catgeories
+#| label: tbl-sample
+#| tbl-cap: "Four randomly selected disease-year observations, with selected columns."
+
+# A fixed seed makes the sample identical each time the document renders.
+set.seed(2026)
+sample_rows <- disease_data |>
+  slice_sample(n = 4) |>
+  select(Disease, `Disease Category`, Year, January, December,
+         `Yearly Cases`, `Yearly Rate`)
+names(sample_rows) <- c("Disease", "Category", "Year", "Jan", "Dec", "Cases", "Rate")
+tt(sample_rows, width = c(.18, .24, .08, .08, .08, .12, .12),
+   notes = "January and December illustrate the monthly fields. Rates are per 100,000 population. NA denotes an unavailable value.") |>
+  style_tt(fontsize = 0.7)
+```
+
+## 2.2 Monthly Disease-Category Patterns
+
+```{r}
+#| label: prepare-monthly-data
+#| include: false
+#| echo: false
+#| warning: false
+
+# Stack the twelve month columns without reading the CSV again.
+monthly_data <- bind_rows(lapply(seq_along(month.name), function(m) {
+  disease_data |>
+    transmute(Category = `Disease Category`, Disease, Year,
+              Date = as.Date(sprintf("%d-%02d-01", Year, m)),
+              Cases = .data[[month.name[m]]])
+}))
+
+# Sum only available counts and explicitly flag partial totals.
+category_monthly <- monthly_data |>
+  group_by(Category, Date) |>
+  summarise(Cases = if (all(is.na(Cases))) NA_real_ else sum(Cases, na.rm = TRUE),
+            Incomplete = any(is.na(Cases)), .groups = "drop")
+
+theme_set(theme_minimal(base_size = 10))
+```
+
+```{r}
+#| label: fig-monthly-disease-categories
+#| fig-cap: "Monthly reported cases by category, 2021-2025. Panels use different vertical scales. Open circles mark totals with missing components, which may understate category counts. Conditions absent from a year's report are not included. Source: Toronto Public Health."
+#| echo: false 
+#| warning: false
+#| fig-width: 7
+#| fig-height: 5.2
+
+category_plot <- ggplot(category_monthly, aes(Date, Cases)) +
+  geom_line(colour = "#235789", linewidth = 0.45) +
+  geom_point(data = filter(category_monthly, Incomplete),
+             shape = 1, size = 2, colour = "#A33A20") +
+  facet_wrap(~Category, scales = "free_y", ncol = 2,
+             labeller = label_wrap_gen(width = 36)) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(labels = function(x) format(x, big.mark = ",", scientific = FALSE)) +
+  labs(x = NULL, y = "Reported cases") +
+  theme(panel.grid.minor = element_blank(), strip.text = element_text(size = 9))
+category_plot
+```
+
+## 2.3 Influenza and Vaccine-Preventable Diseases
+
+```{r}
+#| label: fig-influenza-vaccine-dep
+#| fig-cap: "Monthly influenza cases and the vaccine-preventable category total, 2021-2025. Both lines use the same scale. The category includes adverse vaccine reaction records where reported. Source: Toronto Public Health."
+#| fig-width: 7
+#| fig-height: 3.2
+#| echo: false 
+#| warning: false
+
+comparison <- bind_rows(
+  category_monthly |>
+    filter(Category == "Vaccine Preventable Diseases") |>
+    transmute(Date, Cases, Series = "Vaccine-preventable total"),
+  monthly_data |>
+    filter(Disease == "Influenza") |>
+    transmute(Date, Cases, Series = "Influenza")
+)
+
+ggplot(comparison, aes(Date, Cases, colour = Series, linetype = Series)) +
+  geom_line(linewidth = 0.65) +
+  scale_colour_manual(values = c("Influenza" = "#C34A16",
+                                "Vaccine-preventable total" = "#235789")) +
+  scale_linetype_manual(values = c("Influenza" = "dashed",
+                                  "Vaccine-preventable total" = "solid")) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  labs(x = NULL, y = "Reported cases", colour = NULL, linetype = NULL) +
+  theme(legend.position = "bottom", panel.grid.minor = element_blank())
+```
+
+```{r}
+#| label: fig-influenza-yearly-rate
+#| fig-cap: "Annual reported influenza rates, 2021-2025. Rates retain the source population denominators. The 2025 value comes from the 2026 report's revised annual comparison. Source: Toronto Public Health."
+#| fig-width: 7
+#| fig-height: 3
+#| echo: false 
+#| warning: false
+
+# Influenza has exact numeric annual rates. Do not turn missing rates into zeros.
+influenza_rates <- disease_data |>
+  filter(Disease == "Influenza") |>
+  mutate(Rate = as.numeric(`Yearly Rate`))
+
+ggplot(influenza_rates, aes(Year, Rate)) +
+  geom_line(colour = "#235789", linewidth = 0.65) +
+  geom_point(colour = "#235789", size = 2) +
+  scale_x_continuous(breaks = 2021:2025) +
+  scale_y_continuous(limits = c(0, NA)) +
+  labs(x = NULL, y = "Reported cases per 100,000 population") +
+  theme(panel.grid.minor = element_blank())
+```
+
+# 3 Discussion
+
+
+
+# Appendix
+```{r}
+#| label: tbl-disease-categories
 #| tbl-cap: "Diseases included in each category, 2021–2025."
 #| echo: false
+#| warning: false
 
 # Mark diseases that do not have an entry in all five study years.
 diseases_by_category <- disease_data |>
@@ -79,11 +210,8 @@ diseases_by_category <- disease_data |>
 tt(
   diseases_by_category,
   width = c(0.25, 0.75),
-  notes = "* Not listed in every year from 2021 to 2025. Zero-case entries count as listed; an entry does not imply complete monthly reporting."
+  notes = "* Not listed in every year from 2021 to 2025. Zero-case entries count as listed. An entry does not imply complete monthly reporting."
 )
 ```
 
-
-
-
-# References 
+# References
